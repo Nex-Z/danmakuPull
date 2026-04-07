@@ -1,0 +1,12 @@
+{
+  "name": "danmakuPull",
+  "version": "1.0.0",
+  "description": "Bilibili danmaku search and segment fetch utilities",
+  "main": "bilibili/index.js",
+  "scripts": {
+    "start": "node bilibili/index.js",
+    "test": "node bilibili/index.js",
+    "bili:search": "node bilibili/video_search.js"
+  },
+  "private": true
+}

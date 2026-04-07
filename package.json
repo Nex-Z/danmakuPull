@@ -1,12 +1,14 @@
 {
   "name": "danmakuPull",
   "version": "1.0.0",
-  "description": "Bilibili danmaku search and segment fetch utilities",
+  "description": "Danmaku search and fetch utilities for Bilibili and Tencent Video",
   "main": "bilibili/index.js",
   "scripts": {
     "start": "node bilibili/index.js",
     "test": "node bilibili/index.js",
-    "bili:search": "node bilibili/video_search.js"
+    "bili:search": "node bilibili/video_search.js",
+    "tx:search": "node tencent/video_search.js",
+    "tx:start": "node tencent/index.js"
   },
   "private": true
 }

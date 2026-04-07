@@ -1,7 +1,6 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 
-const PROJECT_ROOT = path.resolve(__dirname, "..");
 const ENV_FILE_NAMES = Object.freeze([".env", ".env.local"]);
 
 let cachedLoadPromise = null;
@@ -59,14 +58,19 @@ function parseEnvText(content) {
     return parsed;
 }
 
+function resolveProjectRoot() {
+    return path.resolve(__dirname, "..", "..", "..");
+}
+
 // 只在第一次调用时读取本地环境文件，避免重复 I/O；
 // 命令行或系统环境变量始终优先，不会被 .env / .env.local 覆盖。
 async function loadProjectEnvFiles() {
+    const projectRoot = resolveProjectRoot();
     const mergedValues = {};
     const loadedFiles = [];
 
     for (const fileName of ENV_FILE_NAMES) {
-        const filePath = path.join(PROJECT_ROOT, fileName);
+        const filePath = path.join(projectRoot, fileName);
         try {
             const content = await fs.readFile(filePath, "utf8");
             Object.assign(mergedValues, parseEnvText(content));

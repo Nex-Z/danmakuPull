@@ -3,3 +3,9 @@
 .env.local
 .env.*.local
 cache/
+dist/
+out/
+node_modules/
+coverage/
+*.tsbuildinfo
+Danmaku Pull Client/

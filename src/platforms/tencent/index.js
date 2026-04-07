@@ -1,6 +1,6 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
-const {ensureProjectEnvLoaded} = require("../bilibili/env");
+const {ensureProjectEnvLoaded} = require("../shared/env");
 const {fetchBarrageWindows, fmtMs} = require("./danmaku");
 
 function readStringEnv(name, fallback) {

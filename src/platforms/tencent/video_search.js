@@ -1,5 +1,5 @@
 const { randomUUID } = require("node:crypto");
-const {ensureProjectEnvLoaded} = require("../bilibili/env");
+const {ensureProjectEnvLoaded} = require("../shared/env");
 
 const SEARCH_ENDPOINT = "https://pbaccess.video.qq.com/trpc.videosearch.mobile_search.MultiTerminalSearch/MbSearch?vversion_platform=2";
 const DEFAULT_REFERER = "https://v.qq.com/";
@@ -260,7 +260,7 @@ async function searchVideoAndGetVid(keyword, options = {}) {
 async function main() {
     const [, , keywordArg, pickArg] = process.argv;
     if (!keywordArg) {
-        console.error("用法: node tencent/video_search.js <关键词> [pick]");
+        console.error("用法: node src/platforms/tencent/video_search.js <关键词> [pick]");
         process.exitCode = 1;
         return;
     }

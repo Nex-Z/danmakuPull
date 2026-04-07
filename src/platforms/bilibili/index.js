@@ -1,7 +1,7 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const {createDanmakuPump} = require("./danmaku");
-const {ensureProjectEnvLoaded} = require("./env");
+const {ensureProjectEnvLoaded} = require("../shared/env");
 
 // 入口层只负责读取调试参数、打印摘要和落盘缓存，不承载平台协议解析逻辑。
 function readStringEnv(name, fallback) {

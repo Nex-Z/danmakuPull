@@ -1,4 +1,4 @@
-const {ensureProjectEnvLoaded} = require("./env");
+const {ensureProjectEnvLoaded} = require("../shared/env");
 
 const DEFAULT_REFERER = "https://www.bilibili.com";
 const SEARCH_ENDPOINT = "https://api.bilibili.com/x/web-interface/search/type";
@@ -275,7 +275,7 @@ async function searchVideoAndGetOid(keyword, options = {}) {
 async function main() {
     const [, , keywordArg, pickArg, pageIndexArg] = process.argv;
     if (!keywordArg) {
-        console.error("用法: node bilibili/video_search.js <关键词> [pick] [pageIndex]");
+        console.error("用法: node src/platforms/bilibili/video_search.js <关键词> [pick] [pageIndex]");
         process.exitCode = 1;
         return;
     }
